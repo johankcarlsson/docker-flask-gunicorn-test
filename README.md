@@ -9,8 +9,8 @@ docker-compose -f docker-compose.yml up --build
 In browser: http://localhost:8080/myapp/
 
 Visual Code can then be used to connect to the container and develop/test code inside the container.
-Gunicorn is setup to reload when new codes is stored.
-  
+Gunicorn is setup to reload when new codes is stored.  
+
   
 Examles was take from below links:  
 [For explanation please visit my blog on blog.entirely.digital](https://blog.entirely.digital/docker-gunicorn-and-flask)
