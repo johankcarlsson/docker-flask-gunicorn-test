@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nginx_myapp: 
+    build:
+        context: ./nginx_myapp
+        dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: nginx_myapp
+    #volumes:
+      #- ./nginx_myapp/sites/default.conf:/etc/nginx/nginx.conf
+      #- ./nginx_myapp/sites:/etc/nginx/conf.d
+    ports:
+      - 8080:80
+      #- 80:80
+      #- 443:443
+    depends_on:
+      - myapp
+      
+  myapp:
+    build:
+      context: ./myapp
+      dockerfile: Dockerfile
+    image: myapp
+    container_name: myapp
+    volumes:
+      - ./myapp/app:/app/code
+    ports:
+      - "5000:5000"
