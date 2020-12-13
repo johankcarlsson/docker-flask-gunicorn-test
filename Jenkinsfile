@@ -15,7 +15,7 @@ node {
          //sh "cd myapp"
          sh "pwd"
          sh "ls -lrt"
-         sh "docker build -t flask-test:1.3 myapp/Dockerfile"
+         sh "docker build -t flask-test:1.3 -f myapp/Dockerfile"
 
         //app = docker.build("getintodevops/hellonode")
     }
@@ -42,7 +42,7 @@ node {
     post {
       always {
             echo 'One way or another, I have finished'
-            deleteDir() /* clean up our workspace */
+            //deleteDir() /* clean up our workspace */
         }
         success {
             echo 'I succeeded!'
