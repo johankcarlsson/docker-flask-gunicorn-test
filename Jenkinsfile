@@ -12,10 +12,10 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-         sh "cd myapp"
+         //sh "cd myapp"
          sh "pwd"
          sh "ls -lrt"
-         sh "docker build -t flask-test:1.3 ."
+         sh "docker build -t flask-test:1.3 myapp/Dockerfile"
 
         //app = docker.build("getintodevops/hellonode")
     }
@@ -40,10 +40,21 @@ node {
         }*/
     }
     post {
-    always {
-       script {    
-            step([$class: 'WsCleanup'])
-       }
+      always {
+            echo 'One way or another, I have finished'
+            deleteDir() /* clean up our workspace */
+        }
+        success {
+            echo 'I succeeded!'
+        }
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
+
+
+
     }
-}
 }
