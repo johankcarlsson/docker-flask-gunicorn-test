@@ -5,6 +5,8 @@ node {
         /* Let's make sure we have the repository cloned to our workspace */
 
         //checkout scm
+        sh "pwd"
+        sh "ls -lrt"
     }
 
     stage('Build image') {
