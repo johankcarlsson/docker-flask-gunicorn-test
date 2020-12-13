@@ -15,7 +15,7 @@ node {
          //sh "cd myapp"
          sh "pwd"
          sh "ls -lrt"
-         sh "docker build -t flask-test:1.3 -f myapp/Dockerfile"
+         sh "docker build  -f myapp/Dockerfile -t flask-test"
 
         //app = docker.build("getintodevops/hellonode")
     }
@@ -53,8 +53,6 @@ node {
         failure {
             echo 'I failed :('
         }
-
-
-
     }
+    
 }
