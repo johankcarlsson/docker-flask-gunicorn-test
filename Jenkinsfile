@@ -3,7 +3,7 @@ node {
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-        git clone https://github.com/johankcarlsson/docker-flask-gunicorn-test.git
+        sh "git clone https://github.com/johankcarlsson/docker-flask-gunicorn-test.git"
         //checkout scm
         sh "pwd"
         sh "ls -lrt"
