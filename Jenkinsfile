@@ -6,12 +6,16 @@ node {
         sh "git clone https://github.com/johankcarlsson/docker-flask-gunicorn-test.git"
         //checkout scm
         sh "pwd"
-        sh "ls -lrt"
+        sh "ls -lrt *"
     }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
+         sh "cd myapp"
+         sh "pwd"
+         sh "ls -lrt"
+         sh "docker build -t flask-test:1.3 ."
 
         //app = docker.build("getintodevops/hellonode")
     }
